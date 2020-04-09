@@ -1,26 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
 import './App.css';
+import Post from './component/Post'
 
-function App() {
+class App extends Component {
+  
+    post = {
+      posterName: 'Nicole',
+      resourceAuthor: 'Steve Jobs',
+      skillLevel: 'Advanced',
+      cohort: '0',
+      title: 'Get Smart with Technology',
+      technology: 'JavaScript',
+      summary: 'This is very insightful article that I highly recommend',
+      link: 'www.google.com/SteveJobs',
+      resourceType: 'Article',
+      datePublished: '1985-12-04.00:00z',
+      length: '5',
+      rating: '4',
+      comments: 'Great resource',
+
+  }
+  render(){
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Brainhive 2</h1>
+      <Post post={this.post}/>
     </div>
   );
 }
-
+}
 export default App;
