@@ -11,7 +11,7 @@ class App extends Component {
       cohort: '0',
       title: 'Get Smart with Technology',
       technology: 'JavaScript',
-      summary: 'This is very insightful article that I highly recommend',
+      summary: 'This is a very insightful article that I highly recommend',
       link: 'www.google.com/SteveJobs',
       resourceType: 'Article',
       datePublished: '1985-12-04.00:00z',

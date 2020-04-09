@@ -3,7 +3,7 @@ import React from 'react';
 const Post = ({post}) => {
 
     return (
-        <div className="box">{post.posterName}
+        <div className="box">{post.resourceAuthor}
         <h1>{post.title}</h1>
         <p>{post.summary}</p>
         </div>
