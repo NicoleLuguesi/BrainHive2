@@ -4,6 +4,7 @@ import Post from './components/Post';
 import posts from './mock/posts';
 import postList from './components/PostForm';
 
+
 class App extends Component {
   renderPosts = () => {
       const display = posts.map(post => {
