@@ -2,7 +2,8 @@ import React, {Component } from 'react';
 import './App.css';
 import Post from './components/Post';
 import posts from './mock/posts';
-import postList from './components/PostForm'
+import postForm from './components/PostForm'
+import PostForm from './components/PostForm';
 
 class App extends Component {
   renderPosts = () => {
@@ -24,6 +25,7 @@ class App extends Component {
         {/* <Post post={this.posts[0]}/> */}
         <div className="postList">
         {this.renderPosts()}
+        <PostForm />
       </div>
       </div>
     );
