@@ -1,26 +1,33 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, {Component } from 'react';
 import './App.css';
+import Post from './components/Post';
+import posts from './mock/posts';
+import postList from './components/PostForm'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+class App extends Component {
+  renderPosts = () => {
+      const display = posts.map(post => {
+        return <Post post={post} />;
+      });
+      return display;
+    }
+
+  render() {
+    return (
+
+      
+      <div className="App">
+        <div className="card">
+        
+        </div>
+        <h1>Welcome to Brain Hive</h1>
+        {/* <Post post={this.posts[0]}/> */}
+        <div className="postList">
+        {this.renderPosts()}
+      </div>
+      </div>
+    );
+   }
+  }
 
 export default App;
