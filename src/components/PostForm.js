@@ -10,7 +10,6 @@ class PostForm extends Component {
              resourceAuthor: '',
              jobSkillLevel: '',
              cohort: ''
-
         }
     }
     
