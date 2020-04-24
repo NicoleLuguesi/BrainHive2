@@ -38,6 +38,10 @@
   }
 }
 
+html {
+  background-color: lightgrey;
+}
+
 .box {
   border: 1px solid pink;
   padding-bottom: 8px;

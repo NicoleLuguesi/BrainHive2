@@ -1,35 +1,53 @@
-import React, {Component } from 'react';
-import './App.css';
-import Post from './components/Post';
-import posts from './mock/posts';
-import postForm from './components/PostForm'
-import PostForm from './components/PostForm';
+import React, { Component } from "react";
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import "./App.css";
+import PostList from "./components/PostList";
+import Navbar from "./components/Navbar";
+//import Post from "./components/Post";
+import posts from "./mock/posts";
+import PostForm from "./components/PostForm";
 
 class App extends Component {
-  renderPosts = () => {
-      const display = posts.map(post => {
-        return <Post post={post} />;
-      });
-      return display;
-    }
+  state = {
+    posts: [...posts],
+  };
+
+  addPost = (postData) => {
+    console.log("hello", postData);
+    this.setState({
+      posts: [...this.state.posts, postData],
+    });
+  };
+
+  // renderPosts = () => {
+  //   // const mapFunction = (post) => {
+  //   //   return <Post post={post} />;
+  //   // };
+
+  //   const display = this.state.posts.map((post) => {
+  //     return <Post post={post} />;
+  //   });
+  //   // [<Post post=[0]/>, <Post post[1]/>, <Post post[2]/>]
+  //   return display;
+  // };
 
   render() {
     return (
-
-      
+      <BrowserRouter>
       <div className="App">
-        <div className="card">
-        
-        </div>
-        <h1>Welcome to Brain Hive</h1>
-        {/* <Post post={this.posts[0]}/> */}
-        <div className="postList">
-        {this.renderPosts()}
-        <PostForm />
+        <Navbar />
+        <Switch>
+          <Route path="/" exact>
+            <PostList posts={this.state.posts} />
+          </Route>
+          <Route path="/add exact">
+            <PostForm addPost={this.addPost} />
+          </Route>
+        </Switch>
       </div>
-      </div>
+      </BrowserRouter>
     );
-   }
   }
+}
 
 export default App;
