@@ -27,28 +27,9 @@ class PostForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log("hi");
-    // add any form validation
-    const postData = { ...this.state };
-    postData.categories = postData.categories.split(",");
-    this.props.addPost(postData);
-    this.setState({
-      posterName: "",
-      resourceAuthor: "",
-      jobSkillLevel: "",
-      cohort: "",
-      title: "",
-      categories: "",
-      summary: "",
-      link: "",
-      resourceType: "",
-      datePublished: null,
-      videoLength: "",
-      timeToComplete: "",
-      rating: "",
-      comments: [],
-    });
-  };
+    let postTest = this.state;
+    this.props.addPost(postTest)
+    };
 
   render() {
     return (

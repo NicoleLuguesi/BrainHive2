@@ -6,6 +6,7 @@ import Navbar from "./components/Navbar";
 //import Post from "./components/Post";
 import posts from "./mock/posts";
 import PostForm from "./components/PostForm";
+import ViewPost from './components/ViewPost'
 
 class App extends Component {
   state = {
@@ -13,23 +14,12 @@ class App extends Component {
   };
 
   addPost = (postData) => {
-    console.log("hello", postData);
+    //console.log("hello", postData);
+    postData.id = this.state.posts.length + 1;
     this.setState({
       posts: [...this.state.posts, postData],
     });
   };
-
-  // renderPosts = () => {
-  //   // const mapFunction = (post) => {
-  //   //   return <Post post={post} />;
-  //   // };
-
-  //   const display = this.state.posts.map((post) => {
-  //     return <Post post={post} />;
-  //   });
-  //   // [<Post post=[0]/>, <Post post[1]/>, <Post post[2]/>]
-  //   return display;
-  // };
 
   render() {
     return (
@@ -38,10 +28,16 @@ class App extends Component {
         <Navbar />
         <Switch>
           <Route path="/" exact>
-            <PostList posts={this.state.posts} />
+            <PostList 
+            posts={this.state.posts}
+            handleSelect={this.handleSelect} />
           </Route>
           <Route path="/add exact">
             <PostForm addPost={this.addPost} />
+          </Route>
+          <Route path="/post/:postId">
+          <ViewPost
+          post={this.state.posts[this.state.selected - 1]} />
           </Route>
         </Switch>
       </div>
