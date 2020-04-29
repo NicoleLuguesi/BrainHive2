@@ -55,16 +55,10 @@ html {
   font-style: bold italic;
   }
 
-p:hover{
-  background-color: yellow;
-}
 
-h2:hover{
-  background-color: orangered;
-}
 
 #title {
-  font-style: italic;
+  font-style: bold italic;
   font-size: 20px;
   color: purple;
   font-weight: bolder;
@@ -103,6 +97,24 @@ h2:hover{
   display: flex;
   background-color: lightblue;
   padding-left: 3vw;
+}
+
+.card h4 {
+  padding: 10px 0px;
+}
+
+.card {
+  transition: .25s;
+  background: lightgray;
+}
+
+/* .card:hover, h5 {
+  color: #eee;
+}  */
+
+.card:hover {
+  transform: scale(1.03);
+  background: darkgreen;
 }
 
 

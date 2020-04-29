@@ -9,7 +9,7 @@ const Navbar = (props) => {
             </h1>
 
             <div id="navigation">
-                <Link to="/add">Add Post</Link>
+                <Link id="App-link" to="/add">Add Post</Link>
             </div>
         </div>
     )

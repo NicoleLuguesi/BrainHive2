@@ -1,23 +1,40 @@
   
-import React from 'react';
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-const Post = ({post}) => {
+class Post extends Component {
+  state = {
+      clicked: false
+  };
 
-  // the paramater is doing this:
-  // const {post} = props;
+  handleClick = () => {
+    this.props.handleSelect(this.props.post.id);
+    this.setState({clicked: true})
+};
 
+  render() {
+    const { post } = this.props;
+  
   return (
-    <div className={'box'}>
-    
-
-      <h2 id="title">{post.title}</h2>
-      <p id="author">{post.resourceAuthor}</p>
-      {post.videoLength ? (<p id="length">Length: {post.videoLength}</p>) : null }
-      {/* {conditional ? true code : false code} */}
-      <p id="rating">Rating: {post.rating}</p>
-      <p id="comments">Comments: {post.comments.length}</p>
-    </div>
-  )
+            <div
+                className={'box'} onClick={this.handleClick}
+                onClick={() => this.handleClick()}>
+                {this.state.clicked ? <Redirect to="/post/id"/> : null}
+                <div className="card">
+                <div className={'postTitle'}>
+                    <h2>{post.title}</h2>
+                </div>
+                <b>{post.resourceAuthor}</b>
+                <p>Poster: {post.posterName}</p>
+                {post.videoLength ? (<p>Length: {post.videolength}</p>)
+                    : null
+                }
+                <i>"{post.summary}"</i>
+                <p>Comments: {post.comments.length}</p>
+            </div>
+            </div>
+    )
+  }
 }
 
 export default Post;
