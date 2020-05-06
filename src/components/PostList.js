@@ -25,21 +25,75 @@
 //     export default PostList;
 
 
-import React from 'react'; 
+import React, { Component } from 'react'; 
 import Post from './Post'; 
 
-const PostList = (props) => {
-    const renderPosts = () => {
-        const display = props.posts.map((post) => {
-            return <Post post={post} 
+class PostList extends Component {
+    state = { 
+        query: "",
+        filteredPosts: [...this.props.PostList],
+
+    };
+
+    handleChange = (e) => {
+        const query = e.target.value;
+        const newPosts = this.props.postList.filter(
+        (post) =>
+        post.title.toLowerCase().indexOf(query.toLowerCase()) >= 0 );
+
+        this.setState({
+            query: query,
+            filteredPosts: newPosts,
+        });
+    };
+
+     renderPosts = () => {
+        const display = this.state.filteredPosts.map((post) => {
+            return( <Post post={post} 
             key={post.id} 
-            handleSelect = {props.handleSelect}/>
-        })
+            handleSelect = {this.props.handleSelect}/>
+            );
+        });
         return display; 
     };
-    return (
-        <div className="postList">{renderPosts()}</div>
-    );
+    render() {
+        return (
+            <div>
+                <div style={myStyles.searchBar}>
+                    <p>
+                        <span role="img"></span>
+                        <input
+                            style={myStyles.input}
+                            type="text"
+                            placeholder="Search Titles"
+                            onChange={this.handleChange}
+                            />
+                    </p>
+                </div>
+                <div className="posts">
+                {this.renderPosts()}
+                    
+                </div>
+            </div>
+        );
+    }
+};
+
+const myStyles = {
+    searchBar: {
+        flex: 1,
+        flexDirection: "row",
+        marginLeft: "30%",
+        marginRight: "30%",
+        marginBottom: 16
+    },
+
+    input: {
+        width: "70%",
+        height: 32,
+        fontSize: 20,
+        marginBottom: 4
+    },
 };
 
 export default PostList;

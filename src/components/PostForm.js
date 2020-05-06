@@ -179,14 +179,30 @@ class PostForm extends Component {
             ...this.state, 
             [e.target.id]: e.target.value,
         });
-    };
+    }
     handleSubmit = (e) => {
         e.preventDefault(); 
         const postData = {...this.state}; 
-        postData.categories = postData.categories.split(',');
+        postData.categories = postData.categories.split(",");
         this.props.addPost(postData); 
-        this.setState({ ...INITIAL_STATE });
+        this.setState({ 
+          posterName: "",
+          resourceAuthor: "",
+          jobSkillLevel: "",
+          cohort: "",
+          title: "",
+          categories: "",
+          summary: "",
+          link: "",
+          resourceType: "",
+          datePublished: "",
+          videoLength: "",
+          timeToComplete: "",
+          raiting: "",
+          comments: []
+      });
     };
+    
     render() {
         return (
             <div>

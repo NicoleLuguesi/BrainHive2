@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import "./App.css";
-import PostList from "./components/PostList";
-import Navbar from "./components/Navbar";
-//import Post from "./components/Post";
-import INITIAL_POSTS from "./mock/posts";
-import PostForm from "./components/PostForm";
+import './App.css';
+import PostList from './components/PostList';
+import Navbar from './components/Navbar';
+//import Post from './components/Post';
+import INITIAL_POSTS from './mock/posts';
+import PostForm from './components/PostForm';
 import ViewPost from './components/ViewPost'
 
 class App extends Component {
@@ -43,7 +43,7 @@ class App extends Component {
             posts={this.state.posts}
             handleSelect={this.handleSelect} />
           </Route>
-          <Route path="/add exact">
+          <Route path="/add" exact>
             <PostForm addPost={this.addPost} />
           </Route>
           <Route path="/post/:postId">

@@ -1,10 +1,30 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import Button from './common/Button';
 
-const ViewPost = (props) => {
-    //extract postid from parameter
-    const { postId } = useParams(); 
-    const { post } = props; 
+class ViewPost extends Component {
+    state = {
+      showComments: false,
+    };
+    clickHandler = () => {
+      this.setState({
+        showComments: !this.state.showComments,
+      });
+    };
+    renderComments = (post) => {
+      return post.comments.map((comment) => {
+        return (
+          <div key={comment.commenter} className="card">
+            <p>{comment.commenter}</p>
+            <p>{comment.text}</p>
+          </div>
+        );
+      });
+    };
+
+    render() {
+        const { postId } = this.props.match.params;
+        const post = this.prop.post[postId - 1];
 
     return(
         <div className="selectedPost">
@@ -15,8 +35,17 @@ const ViewPost = (props) => {
         <i>"{post.summary}"</i>
         <p>Time to complete: {post.timeToComplete} minutes</p>
         <a href={post.link}>Click to view article.</a>
+
+        <div>
+              <Button onClick={this.clickHandler}>
+                {this.state.showComments ? "Hide Comments" : "Show Comments"}
+              </Button>
+              {this.state.showComments ? this.renderComments(post) : null}
+            </div>
+
         </div>
     )
+    }
 };
 
-export default ViewPost; 
+export default withRouter(ViewPost); 
