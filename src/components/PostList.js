@@ -31,13 +31,13 @@ import Post from './Post';
 class PostList extends Component {
     state = { 
         query: "",
-        filteredPosts: [...this.props.PostList],
+        filteredPosts: [...this.props.posts],
 
     };
 
     handleChange = (e) => {
         const query = e.target.value;
-        const newPosts = this.props.postList.filter(
+        const newPosts = this.props.posts.filter(
         (post) =>
         post.title.toLowerCase().indexOf(query.toLowerCase()) >= 0 );
 
