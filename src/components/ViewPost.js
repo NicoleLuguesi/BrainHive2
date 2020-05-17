@@ -14,14 +14,23 @@ class ViewPost extends Component {
     };
     
     renderComments = (post) => {
-      return post.comments.map((comment) => {
+      return post.comments.map((comments) => {
         return (
-          <div className="box">
-            <p>{comment.commenter}</p>
-            <p>{comment.text}</p>
-          </div>
+            <div key={comments.commenter} className="card-content">
+          <p>{comments.commenter}</p>
+          <p>{comments.text}</p>
+        </div>
         );
       });
+    };
+
+     renderStars = (post) => {
+        const rating = post.rating;
+        let stars = "";
+        for (let i = 0; i < rating; i++){
+            stars += "★ ";   
+        }
+        return stars;
     };
 
     render() {
@@ -44,6 +53,10 @@ class ViewPost extends Component {
         <a href={post.link}>Click to view article.</a>
 
         <div>
+
+        <div style={myStyles.cell}>
+                <p style={{margin: 0}}>rating: {this.renderStars(post)}</p>
+              </div> 
               <Button onClick={this.clickHandler}>
                 {this.state.showComments ? "Hide Comments" : "Show Comments"}
               </Button>
@@ -89,7 +102,7 @@ const myStyles = {
   },
   button: {
     marginTop: 16,
-    backgroundColor: "blue",
+    backgroundColor: "feb300",
     color: "white",
   },
 };

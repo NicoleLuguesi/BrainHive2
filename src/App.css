@@ -1,11 +1,7 @@
 .App {
   text-align: center;
   margin: 0 8%;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+  background-image: linear-gradient( #abcc7f, #9a72c8);
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -29,15 +25,6 @@
   color: #61dafb;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 html {
   background-color: lightgrey;
 }
@@ -45,12 +32,12 @@ html {
 .box {
   border: 1px solid pink;
   padding-bottom: 8px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   border-radius: 20px;
   width: 70%;
   max-width: 400px;
   background-color: pink;
-  border-bottom-width: 0;
+  border-bottom-width: 0px;
   box-shadow: 0px 10px 10px  blue;
   font-style: bold italic;
   flex-wrap: wrap;
@@ -79,6 +66,7 @@ html {
   }
 
 .postList {
+  margin: 0 8%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -97,8 +85,10 @@ html {
 
 .header {
   display: flex;
+  flex-direction: row;
   background-color: lightblue;
   padding-left: 3vw;
+  margin-bottom: 1.5rem;
 }
 
 .card h4 {

@@ -1,30 +1,3 @@
-// import React from 'react';
-// import Post from "./Post";
-
-// /*
-// Post List is in charge of displaying a list of post cards and passing along the select function.
-// it has no state because...
-// */
-
-// const PostList = (props) => {
-//     const renderPosts = () => {
-//         // const mapFunction = (post) => {
-//             //return <Post post={post} />;
-//             // };
-
-//             const display = props.posts.map((post) => {
-//                 return 
-//                     <Post post={post} key={post.id} handleSelect={props.handleSelect} />;
-//             });
-//             // [<Post post=[0] />, <Post post[1]/>, <Post post[2]/>]
-//             return display;
-//         };
-//         return <div className="postList">{renderPosts()}</div>
-//     };
-
-//     export default PostList;
-
-
 import React, { Component } from 'react'; 
 import Post from './Post'; 
 
@@ -49,7 +22,9 @@ class PostList extends Component {
 
      renderPosts = () => {
         const display = this.state.filteredPosts.map((post) => {
-            return( <Post post={post} 
+            return( <Post 
+            
+            post={post} 
             key={post.id} 
             handleSelect = {this.props.handleSelect}/>
             );
@@ -61,7 +36,7 @@ class PostList extends Component {
             <div>
                 <div style={myStyles.searchBar}>
                     <p>
-                        <span role="img"></span>
+                        <span role="img">🔍</span>
                         <input
                             style={myStyles.input}
                             type="text"
