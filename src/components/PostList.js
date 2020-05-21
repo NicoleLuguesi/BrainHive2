@@ -34,16 +34,18 @@ class PostList extends Component {
     render() {
         return (
             <div>
-                <div style={myStyles.searchBar}>
+                <div 
+                style={myStyles.searchBar}
+                >
                     <p>
                         <span role="img">🔍</span>
                         <input
-                            style={myStyles.input}
+                            //style={myStyles.input}
                             type="text"
                             placeholder="Search Titles"
                             onChange={this.handleChange}
                             />
-                    </p>
+                    </p>        
                 </div>
                 <div className="posts">
                 {this.renderPosts()}

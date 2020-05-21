@@ -8,7 +8,7 @@ class Post extends Component {
   };
 
   handleClick = () => {
-    this.props.handleSelect(this.props.post.id);
+    //this.props.handleSelect(this.props.post.id);
     this.setState({clicked: true})
 };
 
@@ -17,22 +17,14 @@ class Post extends Component {
   
   return (
             <div
-                className={'box'} onClick={this.handleClick}
-                onClick={() => this.handleClick()}>
-                {this.state.clicked ? <Redirect to="/post/id"/> : null}
-                <div className="card">
-                <div className={'postTitle'}>
-                    <h2>{post.title}</h2>
-                </div>
-                <b>{post.resourceAuthor}</b>
-                <p>Poster: {post.posterName}</p>
-                {post.videoLength ? (<p>Length: {post.videolength}</p>)
-                    : null
-                }
-                <i>"{post.summary}"</i>
+                className='card' onClick={() => this.handleClick()}>
+                {this.state.clicked ? <Redirect to ={`/post/${post.id}`} /> : null }
+                <h2>{post.title}</h2>
+                <p>{post.resourceAuthor}</p>
+                <p>{post.summary}</p>
+                {post.videoLength ? <p>Length: {post.videoLength}</p> : null}
                 <p>Comments: {post.comments.length}</p>
-            </div>
-            </div>
+                </div>
     )
   }
 }
